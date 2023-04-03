@@ -5,6 +5,7 @@ import TodoHead from "./components/TodoHead";
 import TodoList from "./components/TodoList";
 import TodoCreate from "./components/TodoCreate";
 import { TodoProvider } from "./TodoContext";
+import Button from "./Button";
 
 const GlobalStyle = createGlobalStyle`
   body{
@@ -19,6 +20,7 @@ function App(){
       {/* 브라우저 전체 바탕화면 영역 */}
       <TodoTemplate>
         <TodoHead/>
+        <Button/>
         <TodoList/>
         <TodoCreate/>
       </TodoTemplate>
