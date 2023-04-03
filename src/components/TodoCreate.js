@@ -8,6 +8,7 @@ import { MdAdd } from "react-icons/md";
 // transition: 0.125s 초 동안 지속
 // transform: translate(-50%, 50%) : CircleButton이 자식인 absolute이고, TodoTemplateBlock이 relative 부모로, 부모기준으로 중앙배치되게
 // rotate(45deg) 45도 돌게
+
 const CircleButton = styled.button`
     background: #38d9a9a;
     &:hover{
@@ -82,25 +83,10 @@ const Input = styled.input`
 
 function TodoCreate(){
 
-    const [open, setOpen] = useState(false);
-    const [value, setValue] = useState('');
-
-    const onToggle = () => setOpen(!open);
-    const onChange = e => setValue(e.target.value)
-    const onSubmit = e => {
-        e.preventDefault(); // 새로고침 방지를 위함
-    };
-
     return(
         <>
-            {open && (
-                <InsertFormPositioner>
-                    <InsertForm onSubmit={onSubmit}>
-                        <Input autoFocus placeholder="해야할 일 입력 후 Enter" onChange={onChange} value={value}/>
-                    </InsertForm>
-                </InsertFormPositioner>
-            )}
-            <CircleButton onClick={onToggle} open={open}>
+            
+            <CircleButton>
                 <MdAdd/>
             </CircleButton>
         </>
