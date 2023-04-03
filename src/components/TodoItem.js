@@ -1,6 +1,7 @@
 import React from "react";
 import styled, {css} from "styled-components";
 import {MdDone, MdDeleteForever} from "react-icons/md";
+import { useTodoDispatch } from "../TodoContext";
 
 // CheckCircle 컴포넌트는 좌측의 체크할 수 있는 공간의 동그라미
 const CheckCircle = styled.div`
@@ -61,20 +62,22 @@ const TodoItemBlock = styled.div`
 
 function TodoItem({id, done, text}){
 
+    const dispatch = useTodoDispatch();
+    const onToggle = () => dispatch({type: 'TOGGLE', id});
+    const onRemove = () => dispatch({type: 'REMOVE', id});
+
     return(
-        <div>
-            <TodoItemBlock>
-                <CheckCircle done={done}>
-                    {done && <MdDone/>}
-                </CheckCircle>
-                <Text done={done}>
-                    {text}
-                </Text>
-                <Remove>
-                    <MdDeleteForever/>
-                </Remove>
-            </TodoItemBlock>        
-        </div>
+        <TodoItemBlock>
+            <CheckCircle done={done} onClick={onToggle}>
+                {done && <MdDone/>}
+            </CheckCircle>
+            <Text done={done}>
+                {text}
+            </Text>
+            <Remove onClick={onRemove}>
+                <MdDeleteForever/>
+            </Remove>
+        </TodoItemBlock>        
     )
 }
 

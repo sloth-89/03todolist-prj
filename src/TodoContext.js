@@ -1,4 +1,4 @@
-import React, { createContext, useReducer, useRef } from "react";
+import React, { createContext, useContext, useReducer, useRef } from "react";
 
 // useReducer 는 state, dispatch로 reducer 함수가 type을 받아서 switch case로 종류를 따져서 적용해준다.
 // createContext와 useContext 는 중간 컴포넌트가 너무 많을 떄 도착지로 바로 전달하기 위해 사용.
@@ -56,9 +56,23 @@ export function TodoProvider({children}){
 
     return(
         <TodoStateContext.Provider value={state}>
-
+            <TodoDispatchContext.Provider value={dispatch}>
+                <TodoNextIdContext.Provider value={nextId}>
+                    {children}
+                </TodoNextIdContext.Provider>
+            </TodoDispatchContext.Provider>
         </TodoStateContext.Provider>
     )
 }
 
-// export default TodoProvider;
+export function useTodoState(){
+    return useContext(TodoStateContext);
+}
+
+export function useTodoDispatch(){
+    return useContext(TodoDispatchContext);
+}
+
+export function useTodoNextId(){
+    return useContext(TodoNextIdContext);
+}
