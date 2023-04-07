@@ -3,8 +3,6 @@ import styled from "styled-components";
 import { useTodoState } from "../TodoContext";
 
 const TodoHeadBlock = styled.div`
-    width: ;
-    height: ;
     background: beige;
     padding-top: 48px;
     padding-left: 32px;
