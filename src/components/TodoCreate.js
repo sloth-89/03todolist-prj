@@ -11,7 +11,7 @@ import { useTodoDispatch, useTodoNextId } from "../TodoContext";
 // rotate(45deg) 45도 돌게
 
 const CircleButton = styled.button`
-    background: #38d9a9a;
+    background: #38d9a9;
     &:hover{
         background: #63e6be;
     }
@@ -21,7 +21,7 @@ const CircleButton = styled.button`
 
     z-index: 5;
     cursor: pointer;
-    width 80px;
+    width: 80px;
     height: 80px;
     display: block;
     align-items: center;
